@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Produce Bill</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+}
+
+.container {
+    width: 400px;
+    background: white;
+    padding: 25px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+
+    $("#billBtn").click(function () {
+
+        var brand = $("#brand").val();
+        var qty = parseInt($("#qty").val());
+        var price = 0;
+
+        if (brand == "HP") price = 40000;
+        else if (brand == "Nokia") price = 30000;
+        else if (brand == "Samsung") price = 35000;
+        else if (brand == "Motorola") price = 25000;
+        else if (brand == "Apple") price = 70000;
+
+        if ($("#mobile").is(":checked")) price += 10000;
+        if ($("#laptop").is(":checked")) price += 40000;
+
+        alert("Total Bill Amount: ₹" + price * qty);
+    });
+});
+</script>
+</head>
+
+<body>
+<div class="container">
+    <h2>Produce Bill</h2>
+
+    <label>Brand</label>
+    <select id="brand">
+        <option>HP</option>
+        <option>Nokia</option>
+        <option>Samsung</option>
+        <option>Motorola</option>
+        <option>Apple</option>
+    </select>
+
+    <label>Products</label><br>
+    <input type="checkbox" id="mobile"> Mobile
+    <input type="checkbox" id="laptop"> Laptop
+    <br><br>
+
+    <label>Quantity</label>
+    <input type="text" id="qty">
+
+    <button id="billBtn">Produce Bill</button>
+</div>
+</body>
+</html>

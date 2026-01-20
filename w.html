@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sliding Text</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+body {
+    background: #f4f4f4;
+    font-family: Arial;
+    text-align: center;
+}
+
+.image-box {
+    width: 300px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.image-box img {
+    width: 100%;
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 15px;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+    $(".image-box").hover(function () {
+        $(".text").animate({ left: "0%" }, 500);
+    }, function () {
+        $(".text").animate({ left: "-100%" }, 500);
+    });
+});
+</script>
+</head>
+
+<body>
+<h2>Sliding Text on Image</h2>
+
+<div class="image-box">
+    <img src="image.jpg">
+    <div class="text">Welcome to jQuery </div>
+</div>
+
+</body>
+</html>
